@@ -13,7 +13,10 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private static final int REQUEST_CODE = 1;
-    String clickButton;
+    private String clickButton;
+    private final String BUTTON = "BUTTON";
+    private final String CLICK = "CLICK";
+    private final String MYDIALOG = "MYDIALOG";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,17 +37,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_CODE) {
             if(resultCode == Activity.RESULT_OK){
-                clickButton =data.getStringExtra("BUTTON");
+                clickButton =data.getStringExtra(BUTTON);
                 Toast.makeText(this, clickButton, Toast.LENGTH_SHORT).show();
                 new Handler().post(new Runnable() {
                     @Override
                     public void run() {
                         Bundle bundle = new Bundle();
-                        bundle.putString("CLICK", clickButton);
+                        bundle.putString(CLICK, clickButton);
                         FragmentManager fragmentManager = getSupportFragmentManager();
                         CustomeDialogFragment customeDialogFragment = new CustomeDialogFragment();
                         customeDialogFragment.setArguments(bundle);
-                        customeDialogFragment.show(fragmentManager, "MYDIALOG");
+                        customeDialogFragment.show(fragmentManager, MYDIALOG);
                     }
                 });
             }

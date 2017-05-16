@@ -14,6 +14,7 @@ import android.widget.TextView;
  */
 
 public class CustomeDialogFragment extends DialogFragment {
+    private final String CLICK = "CLICK";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -23,7 +24,7 @@ public class CustomeDialogFragment extends DialogFragment {
         TextView dialogButtonOk = (Button) rootView.findViewById(R.id.button_dialog_ok);
 
         setCancelable(false);
-        dialogText.setText(getArguments().getString("CLICK"));
+        dialogText.setText(getArguments().getString(CLICK));
         dialogButtonOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

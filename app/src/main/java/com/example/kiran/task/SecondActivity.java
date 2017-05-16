@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 
 public class SecondActivity extends AppCompatActivity {
+    private final String BUTTON = "BUTTON";
+    private final String BUTTON_OK = "Clicked OK";
+    private final String BUTTON_CANCEL = "Clicked Cancel";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,19 +23,19 @@ public class SecondActivity extends AppCompatActivity {
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intentCall("Clicked OK");
+                intentCall(BUTTON_OK);
             }
         });
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intentCall("Clicked Cancel");
+                intentCall(BUTTON_CANCEL);
             }
         });
     }
     void intentCall(String buttonClick) {
         Intent returnIntent = new Intent();
-        returnIntent.putExtra("BUTTON", buttonClick);
+        returnIntent.putExtra(BUTTON, buttonClick);
         setResult(Activity.RESULT_OK, returnIntent);
         finish();
     }
