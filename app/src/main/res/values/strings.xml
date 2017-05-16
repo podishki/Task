@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Task</string>
     <string name="alert_dialog_ok">ok</string>
+    <string name="start_activity">Start Activity</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">Ok</string>
+    <string name="welcome">welcome</string>
+    <string name="dialog_ok">ok</string>
 </resources>
